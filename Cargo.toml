@@ -1,0 +1,25 @@
+[package]
+authors = ["Billy Sheppard <billysheppard@rmhedge.com>"]
+edition = "2018"
+name = "cargo_git_update"
+version = "0.0.1"
+
+[dependencies]
+anyhow = "1"
+colored = "1.9"
+env_logger = "0.7"
+log = "0.4"
+regex = "1.3"
+semver = "0.11"
+serde_json = "1.0"
+structopt = "0.3"
+toml = "0.5"
+
+[dependencies.rm_daemon_utils]
+features = ["sql_server", "blob_storage", "market_net", "key_vault", "webserver"]
+git = "https://RMHedge@dev.azure.com/RMHedge/Internal/_git/rm-daemon-utils"
+tag = "v0.4.50"
+
+[dependencies.serde]
+features = ["derive"]
+version = "1.0"
