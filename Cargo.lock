@@ -198,9 +198,9 @@ dependencies = [
 
 [[package]]
 name = "azure_sdk_storage_blob"
-version = "0.43.3"
+version = "0.45.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aee02c8eb8e20b0cfb4e1575f6c512f9f2094fe6d880f6869dce3a243865b93b"
+checksum = "eaf0e2fa1a14ea8c99f081aa2fd9098b663b5faaa5377d63aab380c5a62afeca"
 dependencies = [
  "RustyXML",
  "azure_sdk_core",
@@ -212,18 +212,18 @@ dependencies = [
  "hyper",
  "log",
  "md5 0.7.0",
+ "percent-encoding",
  "serde",
  "serde-xml-rs",
  "serde_derive",
- "url",
  "uuid",
 ]
 
 [[package]]
 name = "azure_sdk_storage_core"
-version = "0.43.3"
+version = "0.44.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d7649196fa43d671e80976ae4280d746005c8fd7d95a1eb9d29b6b455f0739f4"
+checksum = "93730b33cf379bacf5e56b5765f98a1f1ee27b2d530a2f8f027f4e806c53b4fd"
 dependencies = [
  "azure_sdk_core",
  "base64 0.12.3",
@@ -456,15 +456,6 @@ checksum = "ce90df4c658c62f12d78f7508cf92f9173e5184a539c10bfe54a3107b3ffd0f2"
 
 [[package]]
 name = "cookie"
-version = "0.13.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0c60ef6d0bbf56ad2674249b6bb74f2c6aeb98b98dd57b5d3e37cace33011d69"
-dependencies = [
- "time 0.2.22",
-]
-
-[[package]]
-name = "cookie"
 version = "0.14.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1373a16a4937bc34efec7b391f9c1500c30b8478a701a4f44c9165cc0475a6e0"
@@ -480,7 +471,7 @@ version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3818dfca4b0cb5211a659bbcbb94225b7127407b2b135e650d717bfb78ab10d3"
 dependencies = [
- "cookie 0.14.2",
+ "cookie",
  "idna",
  "log",
  "publicsuffix",
@@ -1821,7 +1812,7 @@ checksum = "e9eaa17ac5d7b838b7503d118fa16ad88f440498bf9ffe5424e621f93190d61e"
 dependencies = [
  "base64 0.12.3",
  "bytes",
- "cookie 0.14.2",
+ "cookie",
  "cookie_store",
  "encoding_rs",
  "futures-core",
@@ -1869,18 +1860,18 @@ dependencies = [
 
 [[package]]
 name = "rm_daemon_utils"
-version = "0.4.5"
-source = "git+https://RMHedge@dev.azure.com/RMHedge/Internal/_git/rm-daemon-utils?tag=v0.4.5#0e14aeabb1c6a7d358a9f5dc7c850ff31aee7eb7"
+version = "0.4.50"
+source = "git+https://RMHedge@dev.azure.com/RMHedge/Internal/_git/rm-daemon-utils?tag=v0.4.50#56145b70e11264e3da17c0e7fe4ee7f45b750ae0"
 dependencies = [
  "ascii",
  "async_ftp",
  "azure_sdk_core",
  "azure_sdk_storage_blob",
  "azure_sdk_storage_core",
- "base64 0.11.0",
+ "base64 0.12.3",
  "bytes",
  "chrono",
- "cookie 0.13.3",
+ "cookie",
  "futures",
  "jsonwebtoken",
  "log",
@@ -1892,6 +1883,7 @@ dependencies = [
  "reqwest",
  "ring",
  "rust_decimal",
+ "rustls 0.18.1",
  "serde",
  "serde_json",
  "thiserror",

@@ -11,7 +11,7 @@ struct Opt {
     #[structopt(long = "dep")]
     dependency: String,
     /// If this flag is present, cargo update is not run.
-    #[structopt(short = "u", long = "cargo_update")]
+    #[structopt(short = "u", long = "no_cargo_update")]
     update: bool,
 }
 
