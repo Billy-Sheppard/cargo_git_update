@@ -15,11 +15,6 @@ serde_json = "1.0"
 structopt = "0.3"
 toml = "0.5"
 
-[dependencies.rm_daemon_utils]
-features = ["sql_server", "blob_storage", "market_net", "key_vault", "webserver"]
-git = "https://RMHedge@dev.azure.com/RMHedge/Internal/_git/rm-daemon-utils"
-tag = "v0.4.50"
-
 [dependencies.serde]
 features = ["derive"]
 version = "1.0"
