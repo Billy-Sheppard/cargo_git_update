@@ -101,37 +101,13 @@ fn main() -> Result<()> {
         let stderr = String::from_utf8_lossy(&c_upt.stderr);
         let _: Vec<&str> = stderr
             .lines()
-            .map(|l| {
-                if l.contains("Updating") {
-                    let l2 = l.replace("Updating    ", "");
-                    println!(
-                        "    {} {}",
-                        "Updating".bright_green().bold(),
-                        l2.trim_start()
-                    );
-                } else {
-                    println!("{}", l);
-                }
-                l
-            })
+            .map(colour_text)
             .collect();
 
         let stdout = String::from_utf8_lossy(&c_upt.stdout);
         let _: Vec<&str> = stdout
             .lines()
-            .map(|l| {
-                if l.contains("Updating") {
-                    let l2 = l.replace("Updating    ", "");
-                    println!(
-                        "    {} {}",
-                        "Updating".bright_green().bold(),
-                        l2.trim_start()
-                    );
-                } else {
-                    println!("{}", l);
-                }
-                l
-            })
+            .map(colour_text)
             .collect();
     };
     *toml
@@ -146,4 +122,34 @@ fn main() -> Result<()> {
     *toml.get_mut("package").unwrap() = toml::Value::String("".to_string());
     fs::write("Cargo.toml", format!("[package]\n{}{}", package, toml.to_string().replace("package = \"\"\n", "")))?;
     Ok(())
+}
+
+fn colour_text(l: &str) -> &str {
+    if l.contains("Updating") {
+        let l2 = l.replace("Updating", "");
+        println!(
+            "    {} {}",
+            "Updating".bright_green().bold(),
+            l2.trim_start()
+        );
+    }
+    else if l.contains("Adding") {
+        let l2 = l.replace("Adding", "");
+        println!(
+            "      {} {}",
+            "Adding".bright_cyan().bold(),
+            l2.trim_start()
+        );
+    }
+    else if l.contains("Removing") {
+        let l2 = l.replace("Removing", "");
+        println!(
+            "    {} {}",
+            "Removing".bright_red().bold(),
+            l2.trim_start()
+        );
+    } else {
+        println!("{}", l);
+    }
+    l    
 }
